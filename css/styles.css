@@ -39,7 +39,7 @@ html {
     --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
 
     --letter-spacing-default: -0.01875em;
-    --letter-spacing-heading: -0.0125em;
+    --letter-spacing-heading: -0.015625em;
 
     --content-max-width: 35.25rem;
     --hairline: 0.05rem solid var(--color-display-25);
