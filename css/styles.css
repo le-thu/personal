@@ -38,7 +38,7 @@ html {
     --font-body: 'InterVariable', system-ui, -apple-system, sans-serif;
     --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
 
-    --letter-spacing-default: -0.003125em;
+    --letter-spacing-default: -0.01875em;
     --letter-spacing-heading: -0.0125em;
 
     --content-max-width: 35.25rem;
@@ -90,7 +90,7 @@ body {
     font-size: var(--font-size-base);
     line-height: 1.5;
     letter-spacing: var(--letter-spacing-default);
-    font-variation-settings: "opsz" 28;
+    font-variation-settings: "opsz" 18;
     text-wrap: pretty;
     -webkit-font-smoothing: antialiased;
 }
