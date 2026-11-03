@@ -13,7 +13,6 @@ html {
     color-scheme: light dark;
     --color-background: light-dark(oklch(98.5% 0 0), oklch(22.2% 0 0));
     --color-display: light-dark(oklch(30.1% 0 0), oklch(91.6% 0 0));
-    --color-body: light-dark(oklch(38.7% 0 0), oklch(87% 0 0));
     --color-accent: light-dark(oklch(17.8% 0 0), oklch(100% 0 0));
     --color-photo-frame: light-dark(oklch(100% 0 0), oklch(92.5% 0 0));
     --color-selection: light-dark(oklch(95% 0.08 100), oklch(40% 0 0));
@@ -23,13 +22,11 @@ html {
     --color-display-50: oklch(from var(--color-display) l c h / 50%);
     --color-display-70: oklch(from var(--color-display) l c h / 70%);
     --color-display-85: oklch(from var(--color-display) l c h / 85%);
-    --color-accent-10: oklch(from var(--color-accent) l c h / 10%);
-    --color-accent-20: oklch(from var(--color-accent) l c h / 20%);
     --color-accent-50: oklch(from var(--color-accent) l c h / 50%);
     --color-selection-underline: light-dark(oklch(68% 0.1 100), oklch(98.5% 0 0 / 50%));
     --font-size-sm: 0.875rem;    /* 14px */
     --font-size-base: 1rem;      /* 16px */
-    --font-size-md: 1.25rem;     /* 20px */
+    --font-size-md: 1.1875rem;   /* 19px */
     --font-size-lg: 1.375rem;    /* 22px */
     --font-size-xl: 1.5625rem;   /* 25px */
     --font-size-2xl: 1.75rem;    /* 28px */
@@ -38,9 +35,7 @@ html {
     --font-body: 'InterVariable', system-ui, -apple-system, sans-serif;
     --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
 
-    --letter-spacing-default: -0.01875em;
     --letter-spacing-heading: -0.015625em;
-
     --content-max-width: 35.25rem;
     --hairline: 0.05rem solid var(--color-display-25);
 
@@ -89,8 +84,8 @@ body {
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     line-height: 1.5;
-    letter-spacing: var(--letter-spacing-default);
-    font-variation-settings: "opsz" 18;
+    letter-spacing: normal;
+    font-variation-settings: "opsz" 30;
     text-wrap: pretty;
     -webkit-font-smoothing: antialiased;
 }
@@ -127,7 +122,7 @@ p, figcaption, li {
 
 p {
     margin-block: 1.25rem;
-    color: var(--color-body);
+    color: var(--color-display);
 }
 
 strong {
@@ -164,7 +159,6 @@ h3 {
     margin-block: 0.5rem;
     font-size: var(--font-size-md);
     line-height: 1.4;
-    letter-spacing: var(--letter-spacing-default);
     color: var(--color-display-70);
 }
 
@@ -239,7 +233,7 @@ ul {
 
 li {
     margin-block: 1rem;
-    color: var(--color-body);
+    color: var(--color-display);
 }
 
 ul li {
@@ -291,7 +285,6 @@ p.compact {
         column-gap: 1.5rem;
         padding-block: 0.5rem;
         margin: 0;
-        color: var(--color-display);
         border-bottom: var(--hairline);
     }
 }
@@ -314,7 +307,6 @@ p.compact {
     max-width: var(--content-max-width);
     margin-inline: auto;
     padding-bottom: 1.5rem;
-    border-bottom: var(--hairline);
 }
 
 .top-nav-links {
@@ -494,6 +486,10 @@ svg.theme-toggle-icon {
     margin-block: 5rem;
 }
 
+.latest-posts .links-title {
+    font-size: var(--font-size-lg);
+}
+
 .links-page-section p:not(.links-meta) {
     margin-block: 0.625rem;
 }
@@ -523,7 +519,6 @@ svg.theme-toggle-icon {
     font-family: var(--font-mono);
     font-variation-settings: normal;
     font-size: var(--font-size-sm);
-    letter-spacing: 0;
 }
 
 .links-title a {
@@ -599,7 +594,6 @@ a.blog-entry:hover {
 }
 
 .post-navigation p {
-    color: var(--color-display);
     margin: 0;
 }
 
