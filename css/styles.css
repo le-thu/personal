@@ -335,10 +335,6 @@ p.compact {
     color: var(--color-display-70);
 }
 
-.top-nav-links a[aria-current="page"] {
-    color: var(--color-accent);
-}
-
 .theme-toggle {
     display: flex;
     align-items: center;
@@ -410,9 +406,9 @@ main:has(.post-navigation) + footer {
 .big-mark {
     --mark-color: color-mix(in srgb, var(--color-display) 8%, var(--color-background));
     --mark-color-hover: color-mix(in srgb, var(--color-display) 14%, var(--color-background));
-    --mark-thin: 0.6;
+    --mark-thin: 0.3;
     overflow: hidden;
-    padding-top: 3%;
+    padding-top: 1.5%;
     margin-top: 1.5rem;
     color: var(--mark-color);
     transition: color 300ms ease;
@@ -453,8 +449,11 @@ svg.site-mark {
     width: 100%;
 }
 
+/* margin and padding percentages use the wrapper's width, so they are half the old values to match the 50% logo */
 .big-mark svg.site-mark {
-    margin-bottom: -40%;
+    width: 50%;
+    margin-inline: auto;
+    margin-bottom: -20%;
     transform: translateY(6%);
 
     & path {
@@ -558,6 +557,10 @@ svg.theme-toggle-icon {
 
     &:last-child {
         border-bottom: var(--hairline);
+    }
+
+    & .links-title {
+        font-size: var(--font-size-md);
     }
 
     & .blog-date {
