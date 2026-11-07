@@ -18,18 +18,18 @@ html {
     --color-selection: light-dark(oklch(95% 0.08 100), oklch(40% 0 0));
     --color-selection-text: light-dark(oklch(17.8% 0 0), oklch(98.5% 0 0));
 
+    --color-display-15: oklch(from var(--color-display) l c h / 15%);
     --color-display-25: oklch(from var(--color-display) l c h / 25%);
     --color-display-50: oklch(from var(--color-display) l c h / 50%);
     --color-display-70: oklch(from var(--color-display) l c h / 70%);
     --color-display-85: oklch(from var(--color-display) l c h / 85%);
     --color-accent-50: oklch(from var(--color-accent) l c h / 50%);
     --color-selection-underline: light-dark(oklch(68% 0.1 100), oklch(98.5% 0 0 / 50%));
-    --font-size-sm: 0.875rem;    /* 14px */
     --font-size-base: 1rem;      /* 16px */
     --font-size-md: 1.1875rem;   /* 19px */
-    --font-size-lg: 1.375rem;    /* 22px */
-    --font-size-xl: 1.5625rem;   /* 25px */
-    --font-size-2xl: 1.75rem;    /* 28px */
+    --font-size-lg: 1.3125rem;   /* 21px */
+    --font-size-xl: 1.4375rem;   /* 23px */
+    --font-size-2xl: 1.5625rem;  /* 25px */
 
     --font-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
     --font-body: 'InterVariable', system-ui, -apple-system, sans-serif;
@@ -37,7 +37,7 @@ html {
 
     --letter-spacing-heading: -0.015625em;
     --content-max-width: 35.25rem;
-    --hairline: 0.05rem solid var(--color-display-25);
+    --hairline: 0.05rem solid var(--color-display-15);
 
     --enter-duration: 800ms;
     --enter-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -150,7 +150,7 @@ h3 {
 }
 
 .links-title {
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-lg);
     font-weight: 460;
     line-height: 1.4;
 }
@@ -204,7 +204,7 @@ a {
 }
 
 /* only underlined links. the shadow fills the line height without shifting layout */
-a:hover:not(.minimal-link, .blog-entry, .blogroll a, .links-title a, .post-navigation a, .changelog-bar a) {
+a:hover:not(.minimal-link, .blog-entry, .blogroll a, .links-title a, .post-navigation a, .changelog-bar a, .anchor) {
     background-color: var(--color-selection);
     box-shadow: 0 0 0 0.145em var(--color-selection);
     text-decoration-color: var(--color-selection-underline);
@@ -223,6 +223,25 @@ a:hover:not(.minimal-link, .blog-entry, .blogroll a, .links-title a, .post-navig
 
 :target {
     scroll-margin-top: 2rem;
+}
+
+/* section links: shown while the heading is hovered or the link has keyboard focus */
+.anchor {
+    margin-inline-start: 0.25em;
+    font-weight: 400;
+    color: var(--color-display-50);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 120ms ease-in-out, color 120ms ease-in-out;
+}
+
+:is(h2, h3):hover .anchor,
+.anchor:focus-visible {
+    opacity: 1;
+}
+
+@media (hover: none) {
+    .anchor { display: none; }
 }
 
 /* lists */
@@ -486,10 +505,6 @@ svg.theme-toggle-icon {
     margin-block: 5rem;
 }
 
-.latest-posts .links-title {
-    font-size: var(--font-size-lg);
-}
-
 .links-page-section p:not(.links-meta) {
     margin-block: 0.625rem;
 }
@@ -509,16 +524,6 @@ svg.theme-toggle-icon {
     & a {
         color: inherit;
     }
-}
-
-/* meta lines and dates */
-.links-meta,
-.blog-date,
-.blogpage-header time,
-.page-date {
-    font-family: var(--font-mono);
-    font-variation-settings: normal;
-    font-size: var(--font-size-sm);
 }
 
 .links-title a {
