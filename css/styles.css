@@ -21,6 +21,7 @@ html {
     --color-display-15: oklch(from var(--color-display) l c h / 15%);
     --color-display-25: oklch(from var(--color-display) l c h / 25%);
     --color-display-50: oklch(from var(--color-display) l c h / 50%);
+    --color-display-60: oklch(from var(--color-display) l c h / 60%);
     --color-display-70: oklch(from var(--color-display) l c h / 70%);
     --color-display-85: oklch(from var(--color-display) l c h / 85%);
     --color-accent-50: oklch(from var(--color-accent) l c h / 50%);
@@ -366,7 +367,7 @@ p.compact {
     display: flex;
     gap: 1rem;
     align-items: center;
-    color: var(--color-display-70);
+    color: var(--color-display-60);
 }
 
 .theme-toggle {
@@ -386,7 +387,7 @@ p.compact {
     max-width: var(--content-max-width);
     margin-inline: auto;
     margin-block: 1rem;
-    color: var(--color-display-70);
+    color: var(--color-display);
 }
 
 footer {
@@ -415,7 +416,7 @@ footer {
 
 .footer-note {
     margin: 0;
-    color: var(--color-display-70);
+    color: var(--color-display-60);
 }
 
 .footer-directory ul {
@@ -429,7 +430,7 @@ footer {
 }
 
 .footer-directory a {
-    color: var(--color-display-70);
+    color: var(--color-display-60);
 }
 
 .big-mark {
@@ -729,9 +730,9 @@ header:has(.collage) {
     top: -12rem;
     right: 5rem;
     width: 100%;
-    max-width: 14.375rem;
+    max-width: 10rem;
     aspect-ratio: auto 3 / 4;
-    rotate: -9deg;
+    rotate: -8deg;
 }
 
 /* changelog page */
@@ -997,9 +998,8 @@ header:has(.collage) {
     }
 
     .profile-image {
-        top: -12rem;
-        right: 1rem;
-        max-width: 10rem;
+        top: -14rem;
+        right: 2rem;
     }
 
     .collage {
