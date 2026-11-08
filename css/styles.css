@@ -250,6 +250,27 @@ ul {
     padding-inline-start: 1.25rem;
 }
 
+/* skips lists that hide bullets */
+main:not(.changelog) ul:not(.blogroll, .spec-list) {
+    list-style: none;
+
+    & > li {
+        position: relative;
+    }
+
+    & > li::before {
+        content: "";
+        position: absolute;
+        left: -0.875rem;
+        top: calc(0.75em - 0.25rem);
+        width: 0.5rem;
+        height: 0.5rem;
+        box-sizing: border-box;
+        border: 0.09375rem solid var(--color-display-50);
+        border-radius: 50%;
+    }
+}
+
 li {
     margin-block: 1rem;
     color: var(--color-display);
@@ -264,9 +285,22 @@ ol li {
     margin-inline-start: 1.5rem;
 }
 
+ol li::marker {
+    font-variant-numeric: proportional-nums;
+}
+
 .list-compact li,
 p.compact {
     margin-block: 0.5rem;
+}
+
+/* short line introducing the list below it; sits at the list's own 0.5rem rhythm */
+.list-intro {
+    margin-block: 2rem 0.5rem;
+
+    & + .list-compact > ul {
+        margin-block-start: 0;
+    }
 }
 
 .blogroll {
@@ -356,12 +390,7 @@ p.compact {
 }
 
 footer {
-    margin-block: 3rem 0;
-}
-
-/* match the space above post navigation */
-main:has(.post-navigation) + footer {
-    margin-top: 2rem;
+    margin-block: 4rem 0;
 }
 
 .footer-container {
@@ -469,12 +498,6 @@ svg.theme-toggle-icon {
     color: var(--color-display);
     opacity: 0.7;
     transition: color 120ms ease-in-out, opacity 120ms ease-in-out;
-
-    & path {
-        stroke: currentColor;
-        stroke-width: 0.25;
-        stroke-linejoin: round;
-    }
 }
 
 .theme-toggle:hover .theme-toggle-icon {
@@ -588,9 +611,7 @@ a.blog-entry:hover {
     gap: 0.75rem 1.5rem;
     max-width: var(--content-max-width);
     margin-inline: auto;
-    margin-block: 4rem 0;
-    padding-top: 2rem;
-    border-top: var(--hairline);
+    margin-block: 0;
 }
 
 /* rows share the parent's columns so labels line up */
@@ -927,6 +948,7 @@ header:has(.collage) {
     .about-container > section:nth-of-type(4) { animation-delay: calc(var(--enter-step) * 6); }
     .about-container > section:nth-of-type(5) { animation-delay: calc(var(--enter-step) * 7); }
     .about-container > section:nth-of-type(6) { animation-delay: calc(var(--enter-step) * 8); }
+    .about-container > section:nth-of-type(7) { animation-delay: calc(var(--enter-step) * 9); }
 }
 
 @keyframes slideUp {
