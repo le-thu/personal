@@ -7,7 +7,7 @@
 
         if (link.closest('footer .top-nav-links, footer .footer-directory')) {
             track('Footer link', { link: link.textContent.trim() });
-        } else if (link.closest('.top-nav, nav[aria-label="Primary"]')) {
+        } else if (link.closest('.top-nav, nav[aria-label="Primary"], .changelog-bar')) {
             track('Nav link', { link: link.textContent.trim() });
         } else if (link.closest('.post-navigation')) {
             const group = link.closest('.post-navigation > div');

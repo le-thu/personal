@@ -23,7 +23,7 @@ uses.html         tools I use
 css/styles.css    the only stylesheet
 js/theme.js       light/dark theme toggle
 js/collage.js     draggable photo collage on the Now page
-fonts/            self-hosted Inter and Bricolage Grotesque (variable woff2)
+fonts/            self-hosted Mona Sans (variable woff2)
 assets/           favicon, social preview image, about photo
 feed.xml          RSS feed, hand-maintained
 sitemap.xml       sitemap, hand-maintained
@@ -41,4 +41,4 @@ robots.txt        crawler rules
 
 ## License
 
-Code (HTML, CSS, JS) is free to use and adapt. Written content, photos, and other images are mine and not licensed for reuse. Fonts are under their own licenses: [Inter](https://github.com/rsms/inter) and [Bricolage Grotesque](https://github.com/ateliertriay/bricolage), both SIL Open Font License.
+Code (HTML, CSS, JS) is free to use and adapt. Written content, photos, and other images are mine and not licensed for reuse. Fonts are under their own license: [Mona Sans](https://github.com/github/mona-sans), SIL Open Font License.

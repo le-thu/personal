@@ -32,11 +32,9 @@ html {
     --font-size-xl: 1.4375rem;   /* 23px */
     --font-size-2xl: 1.5625rem;  /* 25px */
 
-    --font-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
-    --font-body: 'InterVariable', system-ui, -apple-system, sans-serif;
+    --font-body: 'Mona Sans', system-ui, -apple-system, sans-serif;
     --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
 
-    --letter-spacing-heading: -0.015625em;
     --content-max-width: 35.25rem;
     --hairline: 0.05rem solid var(--color-display-15);
 
@@ -46,27 +44,21 @@ html {
 }
 
 @font-face {
-    font-family: 'Bricolage Grotesque';
-    font-weight: 200 800;
+    font-family: 'Mona Sans';
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
     font-display: swap;
-    src: url('../fonts/BricolageGrotesque-Variable.woff2') format('woff2');
+    src: url('../fonts/MonaSansVF.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'InterVariable';
-    font-weight: 100 900;
-    font-display: swap;
-    src: url('../fonts/InterVariable.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'InterVariable';
-    font-weight: 100 900;
+    font-family: 'Mona Sans';
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
     font-style: italic;
     font-display: swap;
-    src: url('../fonts/InterVariable-Italic.woff2') format('woff2');
+    src: url('../fonts/MonaSansVF-Italic.woff2') format('woff2');
 }
-
 /* base elements */
 
 ::selection {
@@ -85,22 +77,26 @@ body {
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     line-height: 1.5;
-    letter-spacing: normal;
-    font-variation-settings: "opsz" 30;
+    font-feature-settings: "ss01", "ss05", "ss09", "rlig" 0;
+    font-variant-ligatures: none;
     text-wrap: pretty;
     -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3,
-.links-title,
-.post-nav-label,
-.minimal-link {
-    font-family: var(--font-display);
-    font-variation-settings: normal;
-    letter-spacing: var(--letter-spacing-heading);
-    text-decoration: none;
+.links-title {
+    font-weight: 500;
+    font-variation-settings: "opsz" 35;
 }
 
+strong,
+.post-nav-label {
+    font-weight: 540;
+}
+
+.minimal-link {
+    text-decoration: none;
+}
 img, picture, audio, video {
     display: block;
     max-inline-size: 100%;
@@ -126,13 +122,8 @@ p {
     color: var(--color-display);
 }
 
-strong {
-    font-weight: 550;
-}
-
 h1, h2, h3 {
-    font-weight: 450;
-    line-height: 1.25;
+    line-height: 1.2;
 }
 
 h1 {
@@ -152,7 +143,6 @@ h3 {
 
 .links-title {
     font-size: var(--font-size-lg);
-    font-weight: 460;
     line-height: 1.4;
 }
 
@@ -219,7 +209,7 @@ a:hover:not(.minimal-link, .blog-entry, .blogroll a, .links-title a, .post-navig
     .blogroll:has(a:hover) a:not(:hover) { color: var(--color-display-50); }
 
     .big-mark:hover { color: var(--mark-color-hover); }
-    .big-mark:hover svg.site-mark { transform: translateY(-4px); }
+    .big-mark:hover svg.site-mark { transform: translateY(-15px); }
 }
 
 :target {
@@ -259,6 +249,8 @@ main:not(.changelog) ul:not(.blogroll, .spec-list) {
         position: relative;
     }
 
+    /* open circle (Phosphor circle, Regular) as a mask: 32 grid, viewBox
+       cropped to the ring; stroke-width sets its thickness */
     & > li::before {
         content: "";
         position: absolute;
@@ -266,9 +258,8 @@ main:not(.changelog) ul:not(.blogroll, .spec-list) {
         top: calc(0.75em - 0.25rem);
         width: 0.5rem;
         height: 0.5rem;
-        box-sizing: border-box;
-        border: 0.09375rem solid var(--color-display-50);
-        border-radius: 50%;
+        background-color: var(--color-display-50);
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='12 12 8 8'%3E%3Ccircle cx='16' cy='16' r='3.375' fill='none' stroke='black' stroke-width='1.25'/%3E%3C/svg%3E") center / contain no-repeat;
     }
 }
 
@@ -378,8 +369,8 @@ p.compact {
     cursor: pointer;
 }
 
-.homepage-header { margin-block: 11.5rem 6rem; }
-.subpage-header, .blogpage-header { margin-block: 8rem; }
+.homepage-header { margin-block: 12rem 8rem; }
+.subpage-header, .blogpage-header { margin-block: 10rem; }
 
 .minimal-link-container {
     display: flex;
@@ -436,7 +427,6 @@ footer {
 .big-mark {
     --mark-color: color-mix(in srgb, var(--color-display) 8%, var(--color-background));
     --mark-color-hover: color-mix(in srgb, var(--color-display) 14%, var(--color-background));
-    --mark-thin: 0.3;
     overflow: hidden;
     padding-top: 1.5%;
     margin-top: 1.5rem;
@@ -452,16 +442,17 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--color-accent-50);
     border: none;
     height: 5rem;
-    font-size: 1rem;
-    user-select: none;
-    word-spacing: 0.5rem;
 }
 
 .separator::before {
-    content: "✳︎ ✳︎ ✳︎";
+    content: "";
+    height: 1.125rem;
+    aspect-ratio: 1;
+    background-color: var(--color-display-85);
+    opacity: 0.5;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='6 6 20 20'%3E%3Cg fill='black'%3E%3Ccircle cx='7.5' cy='7.5' r='1.5'/%3E%3Ccircle cx='16' cy='7.5' r='1.5'/%3E%3Ccircle cx='24.5' cy='7.5' r='1.5'/%3E%3Ccircle cx='7.5' cy='16' r='1.5'/%3E%3Ccircle cx='16' cy='16' r='1.5'/%3E%3Ccircle cx='24.5' cy='16' r='1.5'/%3E%3Ccircle cx='7.5' cy='24.5' r='1.5'/%3E%3Ccircle cx='16' cy='24.5' r='1.5'/%3E%3Ccircle cx='24.5' cy='24.5' r='1.5'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .divider {
@@ -485,19 +476,13 @@ svg.site-mark {
     margin-inline: auto;
     margin-bottom: -20%;
     transform: translateY(6%);
-
-    & path {
-        stroke: var(--color-background);
-        stroke-width: var(--mark-thin);
-        stroke-linejoin: round;
-    }
 }
 
 svg.theme-toggle-icon {
     width: 1.25rem;
     height: 1.25rem;
     color: var(--color-display);
-    opacity: 0.7;
+    opacity: 0.6;
     transition: color 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
@@ -513,9 +498,23 @@ svg.theme-toggle-icon {
 }
 
 .inline-icon svg {
-    color: var(--color-display-50);
+    color: var(--color-display);
+    opacity: 0.5;
     margin-inline-start: 0.25rem;
-    transition: color 120ms ease-in-out;
+    transition: color 120ms ease-in-out, opacity 120ms ease-in-out;
+}
+
+/* the link's icon brightens with it: blog index rows and "View all posts" */
+a:hover .inline-icon svg {
+    color: var(--color-accent);
+    opacity: 1;
+}
+
+svg.arrow-right-icon,
+svg.arrow-up-right-icon {
+    display: block;
+    width: 1rem;
+    height: 1rem;
 }
 
 /* listings */
@@ -594,10 +593,8 @@ svg.theme-toggle-icon {
     }
 }
 
-a.blog-entry:hover {
-    & :is(.links-title, .blog-date, .inline-icon svg) {
-        color: var(--color-accent);
-    }
+a.blog-entry:hover :is(.links-title, .blog-date) {
+    color: var(--color-accent);
 }
 
 /* post footer */
@@ -629,11 +626,6 @@ a.blog-entry:hover {
 
 .post-navigation a {
     text-decoration: none;
-}
-
-.post-nav-label {
-    font-weight: 500;
-    letter-spacing: -0.00625em;
 }
 
 /* media */
@@ -730,7 +722,7 @@ header:has(.collage) {
     top: -12rem;
     right: 5rem;
     width: 100%;
-    max-width: 10rem;
+    max-width: 11rem;
     aspect-ratio: auto 3 / 4;
     rotate: -8deg;
 }
@@ -738,48 +730,37 @@ header:has(.collage) {
 /* changelog page */
 
 .changelog,
-.changelog :is(h1, h2, button) {
+.changelog :is(h1, h2) {
     font-family: var(--font-mono);
-    font-variation-settings: normal;
-    font-size: 0.8125rem;  /* 13px */
+    font-size: 0.875rem;  /* 14px */
     font-weight: 400;
     line-height: 1.6;
-    letter-spacing: 0;
 }
 
 .changelog {
     max-width: var(--content-max-width);
     margin-inline: auto;
-    padding-block: 3rem 6rem;
+    padding-block: 1.5rem 6rem;  /* top matches .top-nav */
 
     & h1 {
         margin-block: 0 2.5rem;
     }
 }
 
+/* same height as the top nav row on other pages (24px), with the extra space
+   moved below so the h1 stays where it was */
 .changelog-bar {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-block-end: 4rem;
+    align-items: center;
+    min-height: 1.5rem;
+    margin-block-end: 5.25rem;
 
-    & :is(a, button) {
+    & a {
         color: var(--color-display-70);
         text-decoration: none;
         transition: color 120ms ease-in-out;
     }
-
-    & button:hover { color: var(--color-accent); }
-}
-
-.theme-to-light { display: none; }
-
-:root[data-theme="dark"] .theme-to-light { display: inline; }
-:root[data-theme="dark"] .theme-to-dark { display: none; }
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .theme-to-light { display: inline; }
-    :root:not([data-theme="light"]) .theme-to-dark { display: none; }
 }
 
 /* margin = year dot radius, so dots sit flush with the text edge */
@@ -863,29 +844,30 @@ header:has(.collage) {
         overflow: visible;
     }
 
-    & svg.site-mark path {
+    & svg.site-mark > * {
         transform-box: fill-box;
         transform-origin: center;
         transition: transform 900ms cubic-bezier(0.34, 1.4, 0.64, 1);
     }
 
-    & path:nth-child(1) { transform: translate(-30%, -60%) rotate(-38deg); }
-    & path:nth-child(2) { transform: translate(-260%, 300%) rotate(70deg); }
-    & path:nth-child(3) { transform: translate(900%, 40%) rotate(-95deg); }
-    & path:nth-child(4) { transform: translate(12%, -4%) rotate(9deg); }
+    /* offsets are in the logo's 32-unit grid: flag, slot, post, body */
+    & svg.site-mark > :nth-child(1) { transform: translate(-2px, -5px) rotate(-38deg); }
+    & svg.site-mark > :nth-child(2) { transform: translate(-15px, 5px) rotate(70deg); }
+    & svg.site-mark > :nth-child(3) { transform: translate(-6px, 4px) rotate(-12deg); }
+    & svg.site-mark > :nth-child(4) { transform: translate(3px, -1px) rotate(9deg); }
 }
 
 .not-found:has(a:is(:hover, :focus-visible)) .not-found-mark {
     color: color-mix(in srgb, var(--color-display) 40%, var(--color-background));
 
-    & path {
+    & svg.site-mark > * {
         transform: none;
         transition-duration: 700ms;
     }
 }
 
 @media (hover: none) {
-    .not-found-mark path {
+    .not-found-mark svg.site-mark > * {
         animation: reassemble 700ms 1.5s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
     }
 }
@@ -895,7 +877,7 @@ header:has(.collage) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .not-found-mark path {
+    .not-found-mark svg.site-mark > * {
         transition: none;
         animation: none;
     }
@@ -978,17 +960,10 @@ header:has(.collage) {
 
 /* breakpoints */
 
-@media screen and (max-width: 1080px) {
-    .profile-image {
-        top: -15rem;
-        max-width: 12.5rem;
-    }
-}
-
 @media screen and (max-width: 744px) {
     :root { --font-size-base: 1.0625rem; }  /* 17px */
     body { margin-inline: 1.5rem; }
-    .homepage-header, .subpage-header, .blogpage-header { margin-block: 5rem 4rem; }
+    .homepage-header, .subpage-header, .blogpage-header { margin-block: 5rem; }
     .collage-photo { width: 12.5rem; }
 
     .spec-list li {
