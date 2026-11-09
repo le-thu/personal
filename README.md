@@ -23,6 +23,7 @@ uses.html         tools I use
 css/styles.css    the only stylesheet
 js/theme.js       light/dark theme toggle
 js/collage.js     draggable photo collage on the Now page
+js/analytics.js   Umami events
 fonts/            self-hosted Mona Sans (variable woff2)
 assets/           favicon, social preview image, about photo
 feed.xml          RSS feed, hand-maintained
@@ -36,7 +37,7 @@ robots.txt        crawler rules
 ## Good to know
 
 - All colors are OKLCH custom properties in `:root`, with `light-dark()` for themes. No `theme-color` meta tags. Browser UI follows `color-scheme` and the page background.
-- Icons are inline SVG, no icon files.
+- Icons are inline SVG, no icon files. The section separator and list bullets are SVGs drawn as CSS masks in `styles.css`.
 - Images are kept at 1600px longest edge, WebP at quality 80, under 500KB.
 
 ## License

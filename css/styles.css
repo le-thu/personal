@@ -249,8 +249,6 @@ main:not(.changelog) ul:not(.blogroll, .spec-list) {
         position: relative;
     }
 
-    /* open circle (Phosphor circle, Regular) as a mask: 32 grid, viewBox
-       cropped to the ring; stroke-width sets its thickness */
     & > li::before {
         content: "";
         position: absolute;
@@ -470,7 +468,6 @@ svg.site-mark {
     width: 100%;
 }
 
-/* margin and padding percentages use the wrapper's width, so they are half the old values to match the 50% logo */
 .big-mark svg.site-mark {
     width: 50%;
     margin-inline: auto;
@@ -504,7 +501,6 @@ svg.theme-toggle-icon {
     transition: color 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
-/* the link's icon brightens with it: blog index rows and "View all posts" */
 a:hover .inline-icon svg {
     color: var(--color-accent);
     opacity: 1;
@@ -612,7 +608,6 @@ a.blog-entry:hover :is(.links-title, .blog-date) {
     margin-block: 0;
 }
 
-/* rows share the parent's columns so labels line up */
 .post-navigation > div {
     display: grid;
     grid-column: 1 / -1;
@@ -655,8 +650,6 @@ figcaption {
     border: none;
     border-radius: 0.5rem;
 }
-
-/* printed photos */
 
 .collage-photo,
 .profile-image {
@@ -740,15 +733,13 @@ header:has(.collage) {
 .changelog {
     max-width: var(--content-max-width);
     margin-inline: auto;
-    padding-block: 1.5rem 6rem;  /* top matches .top-nav */
+    padding-block: 1.5rem 6rem;
 
     & h1 {
         margin-block: 0 2.5rem;
     }
 }
 
-/* same height as the top nav row on other pages (24px), with the extra space
-   moved below so the h1 stays where it was */
 .changelog-bar {
     display: flex;
     justify-content: space-between;
