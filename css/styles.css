@@ -77,7 +77,7 @@ body {
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     line-height: 1.5;
-    font-feature-settings: "ss01", "ss05", "ss09", "rlig" 0;
+    font-feature-settings: "ss01", "ss05", "ss07", "ss09", "rlig" 0;
     font-variant-ligatures: none;
     text-wrap: pretty;
     -webkit-font-smoothing: antialiased;
@@ -86,7 +86,6 @@ body {
 h1, h2, h3,
 .links-title {
     font-weight: 500;
-    font-variation-settings: "opsz" 35;
 }
 
 strong,
@@ -129,20 +128,24 @@ h1, h2, h3 {
 h1 {
     margin-block: 0.25rem;
     font-size: var(--font-size-2xl);
+    font-variation-settings: "opsz" 64;
 }
 
 h2 {
     margin-block: 4rem 1rem;
     font-size: var(--font-size-xl);
+    font-variation-settings: "opsz" 59;
 }
 
 h3 {
     margin-block: 3rem 1rem;
     font-size: var(--font-size-lg);
+    font-variation-settings: "opsz" 54;
 }
 
 .links-title {
     font-size: var(--font-size-lg);
+    font-variation-settings: "opsz" 54;
     line-height: 1.4;
 }
 
@@ -521,6 +524,11 @@ svg.arrow-up-right-icon {
     margin-block: 5rem;
 }
 
+.links-page .links-title {
+    font-size: var(--font-size-md);
+    font-variation-settings: "opsz" 49;
+}
+
 .links-page-section {
     margin-block: 5rem;
 }
@@ -582,6 +590,7 @@ svg.arrow-up-right-icon {
 
     & .links-title {
         font-size: var(--font-size-md);
+        font-variation-settings: "opsz" 49;
     }
 
     & .blog-date {
