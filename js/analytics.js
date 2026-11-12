@@ -17,4 +17,11 @@
             track('Outbound link', { url: link.href });
         }
     });
+
+    document.addEventListener('toggle', (e) => {
+        if (!e.target.matches?.('details')) return;
+
+        const section = e.target.querySelector('summary')?.textContent.trim();
+        track('Section toggle', { section, to: e.target.open ? 'open' : 'closed' });
+    }, true);
 }
