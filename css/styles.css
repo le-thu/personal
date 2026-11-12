@@ -921,13 +921,12 @@ header:has(.collage) {
         animation-name: slideUp;
     }
 
-    .homepage-header > *:nth-child(2),
     .subpage-header > *:nth-child(2) { animation-delay: calc(var(--enter-step) * 1); }
 
     main { animation-delay: calc(var(--enter-step) * 1); }
     main > *:nth-child(1) { animation-delay: calc(var(--enter-step) * 2); }
     main > *:nth-child(2) { animation-delay: calc(var(--enter-step) * 3); }
-    main > *:nth-child(3) { animation-delay: calc(var(--enter-step) * 4); }
+    main > *:nth-child(n+3) { animation-delay: calc(var(--enter-step) * 4); }
 
     footer { animation-delay: calc(var(--enter-step) * 4); }
 
