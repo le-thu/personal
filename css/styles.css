@@ -131,14 +131,15 @@ h1 {
     font-variation-settings: "opsz" 44;
 }
 
-h2 {
-    margin-block: 4rem 1rem;
+h2,
+h2.links-title {
+    margin-block: 4rem 1.25rem;
     font-size: var(--font-size-xl);
     font-variation-settings: "opsz" 42;
 }
 
 h3 {
-    margin-block: 3rem 1rem;
+    margin-block: 3rem 1.25rem;
     font-size: var(--font-size-lg);
     font-variation-settings: "opsz" 40;
 }
