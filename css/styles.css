@@ -675,7 +675,6 @@ figcaption {
     border: 0.5rem solid var(--color-photo-frame);
     border-radius: 0.125rem;
     background-color: var(--color-photo-frame);
-    background-size: cover;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
