@@ -131,8 +131,7 @@ h1 {
     font-variation-settings: "opsz" 44;
 }
 
-h2,
-h2.links-title {
+h2 {
     margin-block: 4rem 1.25rem;
     font-size: var(--font-size-xl);
     font-variation-settings: "opsz" 42;
@@ -145,15 +144,15 @@ h3 {
 }
 
 .links-title {
-    font-size: var(--font-size-lg);
-    font-variation-settings: "opsz" 40;
+    font-size: var(--font-size-md);
+    font-variation-settings: "opsz" 38;
     line-height: 1.4;
 }
 
 .sub-heading {
     margin-block: 0.5rem;
     font-size: var(--font-size-md);
-    line-height: 1.35;
+    line-height: 1.4;
     color: var(--color-display-70);
 }
 
@@ -287,10 +286,6 @@ p.compact {
 
 .list-intro {
     margin-block: 2rem 0.5rem;
-
-    & + .list-compact > ul {
-        margin-block-start: 0;
-    }
 }
 
 summary {
@@ -532,11 +527,6 @@ details[open] svg.caret-icon {
     margin-block: 5rem;
 }
 
-.links-page .links-title {
-    font-size: var(--font-size-md);
-    font-variation-settings: "opsz" 38;
-}
-
 .links-page-section {
     margin-block: 5rem;
 }
@@ -579,7 +569,6 @@ details[open] svg.caret-icon {
 .blog-section .overline {
     grid-row: 1;
     margin: 0;
-    font-size: var(--font-size-lg);
 }
 
 .blog-entry {
@@ -594,11 +583,6 @@ details[open] svg.caret-icon {
 
     &:last-child {
         border-bottom: var(--hairline);
-    }
-
-    & .links-title {
-        font-size: var(--font-size-md);
-        font-variation-settings: "opsz" 38;
     }
 
     & .blog-date {
@@ -624,7 +608,6 @@ a.blog-entry:hover :is(.links-title, .blog-date) {
     gap: 0.75rem 1.5rem;
     max-width: var(--content-max-width);
     margin-inline: auto;
-    margin-block: 0;
 }
 
 .post-navigation > div {
@@ -673,7 +656,6 @@ figcaption {
 .collage-photo,
 .profile-image {
     border: 0.5rem solid var(--color-photo-frame);
-    border-radius: 0.125rem;
     background-color: var(--color-photo-frame);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
