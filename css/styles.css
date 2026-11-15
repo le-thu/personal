@@ -96,7 +96,7 @@ strong,
 .minimal-link {
     text-decoration: none;
 }
-img, picture, audio, video {
+img {
     display: block;
     max-inline-size: 100%;
     border-radius: 0.125rem;
@@ -483,7 +483,6 @@ svg.theme-toggle-icon {
 
 .inline-icon {
     display: inline-block;
-    line-height: 1;
 }
 
 .inline-icon svg {
@@ -563,7 +562,6 @@ details[open] svg.caret-icon {
 }
 
 .blog-section .overline {
-    grid-row: 1;
     margin: 0;
 }
 
