@@ -513,10 +513,6 @@ svg.arrow-left-icon {
     margin-inline: 0 0.25rem;
 }
 
-svg.arrow-up-right-icon {
-    margin-inline-start: 0;
-}
-
 details[open] svg.caret-icon {
     rotate: 90deg;
 }
@@ -577,7 +573,7 @@ details[open] svg.caret-icon {
     grid-template-columns: 1fr auto;
     column-gap: 2rem;
     align-items: baseline;
-    padding-block: 0.75rem;
+    padding-block: 0.5rem;
     border-top: var(--hairline);
     text-decoration: none;
 
@@ -592,7 +588,7 @@ details[open] svg.caret-icon {
     }
 }
 
-a.blog-entry:hover :is(.links-title, .blog-date) {
+a.blog-entry:hover .blog-date {
     color: var(--color-accent);
 }
 
