@@ -26,6 +26,7 @@ html {
     --color-display-85: oklch(from var(--color-display) l c h / 85%);
     --color-accent-50: oklch(from var(--color-accent) l c h / 50%);
     --color-selection-underline: light-dark(oklch(68% 0.1 100), oklch(98.5% 0 0 / 50%));
+    --color-quote-mark: light-dark(oklch(56% 0.1 100), oklch(98.5% 0 0 / 50%));
     --font-size-base: 1rem;      /* 16px */
     --font-size-md: 1.1875rem;   /* 19px */
     --font-size-lg: 1.25rem;     /* 20px */
@@ -159,6 +160,7 @@ h3 {
 blockquote {
     margin-block: 1rem;
     margin-inline: max(1rem, (100% - var(--content-max-width)) / 2 + 1rem);
+    text-indent: -0.75em;
 }
 
 blockquote p {
@@ -172,14 +174,21 @@ blockquote p {
 
 blockquote p:first-child::before {
     content: open-quote;
-    margin-right: 0.2em;
-    color: var(--color-selection-underline);
+    display: inline-block;
+    width: 0.5em;
+    margin-right: 0.1em;
+    font-size: 1.25em;
+    line-height: 0;
+    text-indent: 0;
+    color: var(--color-quote-mark);
 }
 
 blockquote p:last-child::after {
     content: close-quote;
-    margin-left: 0.2em;
-    color: var(--color-selection-underline);
+    margin-left: 0.1em;
+    font-size: 1.25em;
+    line-height: 0;
+    color: var(--color-quote-mark);
 }
 
 /* links */
