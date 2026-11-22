@@ -24,4 +24,10 @@
         const section = e.target.querySelector('summary')?.textContent.trim();
         track('Section toggle', { section, to: e.target.open ? 'open' : 'closed' });
     }, true);
+
+    document.addEventListener('change', (e) => {
+        if (!e.target.matches?.('.links-filter input')) return;
+
+        track('Links filter', { tag: e.target.labels[0]?.textContent.trim() });
+    });
 }

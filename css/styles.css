@@ -180,6 +180,7 @@ blockquote p:first-child::before {
     font-size: 1.25em;
     line-height: 0;
     text-indent: 0;
+    hanging-punctuation: none;
     color: var(--color-quote-mark);
 }
 
@@ -553,6 +554,45 @@ details[open] svg.caret-icon {
     & a {
         color: inherit;
     }
+}
+
+.links-filter {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    min-width: 0;
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    border: none;
+
+    & input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    & label {
+        color: var(--color-display-60);
+        cursor: pointer;
+        transition: color 120ms ease-in-out;
+    }
+
+    & label:hover,
+    & input:checked + label {
+        color: var(--color-accent);
+    }
+}
+
+.links-page:has(#tag-life:checked) .links-page-section:not([data-tags~="life"]),
+.links-page:has(#tag-work:checked) .links-page-section:not([data-tags~="work"]),
+.links-page:has(#tag-design:checked) .links-page-section:not([data-tags~="design"]),
+.links-page:has(#tag-craft:checked) .links-page-section:not([data-tags~="craft"]),
+.links-page:has(#tag-writing:checked) .links-page-section:not([data-tags~="writing"]),
+.links-page:has(#tag-internet:checked) .links-page-section:not([data-tags~="internet"]),
+.links-page:has(#tag-finds:checked) .links-page-section:not([data-tags~="finds"]),
+.links-page:has(#tag-watching:checked) .links-page-section:not([data-tags~="watching"]) {
+    display: none;
 }
 
 .links-title a {
@@ -998,7 +1038,8 @@ a:hover {
 
 /* keyboard focus */
 
-:is(a[href], .theme-toggle):focus-visible {
+:is(a[href], .theme-toggle):focus-visible,
+.links-filter input:focus-visible + label {
     outline: 0.0625rem solid transparent;
     background-color: var(--color-selection);
     box-shadow: 0 0 0 0.25rem var(--color-selection);
