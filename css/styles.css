@@ -664,7 +664,8 @@ figcaption {
 
 /* now page */
 
-header:has(.collage) {
+header:has(.collage),
+main:has(.profile-image) {
     position: relative;
     z-index: 1;
 }
@@ -681,6 +682,10 @@ header:has(.collage) {
     position: absolute;
     width: 16rem;
     aspect-ratio: auto 4 / 3;
+}
+
+.collage-photo,
+.profile-image {
     cursor: grab;
     touch-action: none;
     user-select: none;
@@ -690,19 +695,18 @@ header:has(.collage) {
 }
 
 @media (hover: hover) {
-    .collage-photo:hover:not(.is-dragging):not(.just-dropped) {
+    :is(.collage-photo, .profile-image):hover:not(.is-dragging):not(.just-dropped) {
         translate: 0 -6px;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
     }
 }
 
-.collage-photo.is-dragging {
+:is(.collage-photo, .profile-image).is-dragging {
     cursor: grabbing;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
-.collage-photo.is-dragging,
-.collage-photo.just-dropped {
+:is(.collage-photo, .profile-image):is(.is-dragging, .just-dropped) {
     transition: none;
 }
 
@@ -913,7 +917,10 @@ header:has(.collage) {
 
     footer { animation-delay: calc(var(--enter-step) * 4); }
 
-    .profile-image { animation-delay: calc(var(--enter-step) * 2); }
+    .profile-image {
+        animation-delay: calc(var(--enter-step) * 2);
+        animation-fill-mode: backwards;
+    }
 
     .about-container > section:nth-of-type(1) { animation-delay: calc(var(--enter-step) * 3); }
     .about-container > section:nth-of-type(2) { animation-delay: calc(var(--enter-step) * 4); }

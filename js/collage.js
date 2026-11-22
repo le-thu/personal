@@ -1,5 +1,5 @@
 {
-    const photos = document.querySelectorAll('.collage-photo');
+    const photos = document.querySelectorAll('.collage-photo, .profile-image');
 
     if (photos.length) {
         let topZ = 0;
