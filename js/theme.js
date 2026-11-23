@@ -25,9 +25,18 @@
             button.addEventListener('click', () => {
                 const next = currentTheme() === 'dark' ? 'light' : 'dark';
                 window.umami?.track('Theme toggle', { to: next });
-                setTheme(next);
                 try { localStorage.setItem('theme', next); } catch (e) {}
-                updateLabel(button);
+
+                const apply = () => {
+                    setTheme(next);
+                    updateLabel(button);
+                };
+                const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (document.startViewTransition && !reduceMotion) {
+                    document.startViewTransition(apply);
+                } else {
+                    apply();
+                }
             });
         });
     });
