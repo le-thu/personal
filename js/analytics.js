@@ -1,33 +1,8 @@
 {
-    const track = (name, data) => window.umami?.track(name, data);
-
     document.addEventListener('click', (e) => {
         const link = e.target.closest('a[href]');
-        if (!link) return;
-
-        if (link.closest('footer .top-nav-links, footer .footer-directory')) {
-            track('Footer link', { link: link.textContent.trim() });
-        } else if (link.closest('.top-nav, .changelog-bar')) {
-            track('Nav link', { link: link.textContent.trim() });
-        } else if (link.closest('.post-navigation')) {
-            const group = link.closest('.post-navigation > div');
-            const type = group?.querySelector('.post-nav-label')?.textContent.trim();
-            track('Post nav', { type });
-        } else if (link.hostname !== location.hostname) {
-            track('Outbound link', { url: link.href });
+        if (link && link.hostname !== location.hostname) {
+            window.umami?.track('Outbound link', { url: link.href });
         }
-    });
-
-    document.addEventListener('toggle', (e) => {
-        if (!e.target.matches?.('details')) return;
-
-        const section = e.target.querySelector('summary')?.textContent.trim();
-        track('Section toggle', { section, to: e.target.open ? 'open' : 'closed' });
-    }, true);
-
-    document.addEventListener('change', (e) => {
-        if (!e.target.matches?.('.links-filter input')) return;
-
-        track('Links filter', { tag: e.target.labels[0]?.textContent.trim() });
     });
 }
